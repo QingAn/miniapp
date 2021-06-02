@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>MiniApp for IoT</title>
+
+    <link rel="stylesheet" href="https://w3c.github.io/miniapp/specs/local.css" />
+
+    <style>
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    table {
+      border-collapse:collapse;
+    }
+
+    table,th, td {
+      border: 1px solid #666;
+    }
+
+    td {
+      padding:2px 15px;
+    }
+    </style>
+
+<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer>
+</script>
+
+    <!-- <script defer src="https://w3c.github.io/miniapp/specs/script.js"></script> -->
+
+    <script class="remove">
+        var respecConfig = {
+            specStatus: "CG-DRAFT",
+            copyrightStart: "2021",
+            edDraftURI: "https://w3c.github.io/miniapp-iot/",
+
+            shortName: "miniapp-iot",
+
+            editors: [{
+                name: "Qing An",
+                companyURL: "http://www.alibabagroup.com/en/global/home",
+                company: "Alibaba"
+              }, {
+                name: "Ping Shen",
+                companyURL: "http://www.alibabagroup.com/en/global/home",
+                company: "Alibaba"
+              }],
+           
+            
+            wg: "MiniApps Ecosystem Community Group",
+            wgURI: "https://www.w3.org/community/miniapps/",
+            github: "w3c/miniapp",
+            
+            localBiblio:  {
+              "MINIAPP-PACKAGING": {
+                  title: "MiniApp Packaging",
+                  href: "https://w3c.github.io/miniapp-packaging/"
+              },
+              "MINIAPP-LIFECYCLE": {
+                  title: "MiniApp Lifecycle",
+                  href: "https://w3c.github.io/miniapp-lifecycle/"
+              },
+            },
+        };
+    </script>
+</head>
+  
+<body data-cite="HTML webidl">
+    <section id='abstract'>
+        <p>
+          This specification defines the MiniApp lifecycle events and the process to manage MiniApp and each page's lifecycle. Implementing this specification enables the user agent to manage the lifecycle events of both global application lifecycle and page lifecycle.
+        </p>
+    </section>
+    <section id='sotd'>
+        
+    </section>
+
+    <section>
+      <h2>Background</h2>
+      <p>
+        As described in <a href="https://www.w3.org/TR/mini-app-white-paper/#separate-the-view-layer-from-the-logic-layer">MiniApp Standardization White Paper</a>, in a miniapp, the View layer is separated from the Logic layer. The <dfn data-dfn-for="Document" data-export="">View layer</dfn> is responsible for rendering MiniApp pages, including Web rendering and native rendering, which can be considered as hybrid rendering. The <dfn data-dfn-for="Document" data-export="">Logic layer</dfn> is implemented with JavaScript Worker. The Logic layer is responsible for MiniApp’s event processing, API calling and lifecycle management.
+      </p>
+      <p>
+        MiniApp lifecycle mechanism provides a means to manage MiniApp's View layer and Logic layer through the MiniApp [=Document/global application lifecycle events=] and MiniApp [=Document/page lifecycle events=]. Developing MiniApp with knowledge of the MiniApp [=Document/global application lifecycle states=] and MiniApp [=Document/page lifecycle states=] can lead to improved user experiences. MiniApp lifecycle includes a set of events, with which MiniApp can choose to alter its behavior based on its state.
+      </p>
+    </section>
+
+     <section class='informative'>
+      <h2>Privacy and Security</h2>
+        <p>
+          MiniApp [=Document/running in foreground=] and [=Document/running in background=] event enables developer to know when a MiniApp is visible. By use of [=Document/page running in foreground=] event, developer can choose to process and hide the sensitive data, before MiniApp page switches to be [=Document/page running in foreground=]; the [=Document/page unloaded=] event provides a notification that the page is being unloaded.
+        </p>
+     </section>
+    
+</body>
+
+</html>
